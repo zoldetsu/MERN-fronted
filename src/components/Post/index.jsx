@@ -36,6 +36,8 @@ export const Post = ({
     dispatch(fetchRemovePost(_id));
   };
 
+  const date = new Date(createdAt);
+  const formattedDate = date.toLocaleString();
   return (
     <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
       {isEditable && (
@@ -58,7 +60,7 @@ export const Post = ({
         />
       )}
       <div className={styles.wrapper}>
-        <UserInfo {...user} additionalText={createdAt} />
+        <UserInfo {...user} additionalText={formattedDate} />
         <div className={styles.indention}>
           <h2
             className={clsx(styles.title, { [styles.titleFull]: isFullPost })}
